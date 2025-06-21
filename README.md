@@ -1,70 +1,70 @@
 # Flight-Delay-Prediction-using-Big-Data
-✈️ Flight Delay Prediction
-This project analyzes and predicts flight delays using real-world U.S. flight data. The goal is to build a classification model that can determine whether a flight will be delayed by more than 15 minutes.
+<h1 align="center">✈️ Flight Delay Prediction</h1>
+<p align="center">
+  <b>Analyze, Visualize, and Predict Flight Delays with Machine Learning</b><br>
+  <i>Built using Python, scikit-learn, pandas, and visualized with seaborn/matplotlib</i>
+</p>
 
-📁 Datasets Used
-flights.csv: Flight-level data (departure, arrival times, delays, etc.)
+---
 
-airports.csv: Information about airport locations
+## 📁 Datasets Used
 
-airlines.csv: Information about airlines
+| Dataset       | Description                               |
+|---------------|-------------------------------------------|
+| `flights.csv` | Flight details (delays, times, airports)  |
+| `airports.csv`| Info about U.S. airports                  |
+| `airlines.csv`| Airline codes and names                   |
 
-🛠️ Project Workflow
-1. Data Loading & Inspection
-Load and inspect the data for basic structure, size, and missing values.
+---
 
-2. Data Cleaning & Feature Engineering
-Drop rows with critical missing values.
+## 🔄 Project Workflow
 
-Convert times to readable format.
+### 1️⃣ Data Loading & Inspection
+- Load CSVs from Google Drive
+- Print shapes, columns, and missing values
 
-Create custom features like DELAY_CATEGORY, DAY_PERIOD.
+### 2️⃣ Data Cleaning & Feature Engineering
+- Drop incomplete rows
+- Create time features (convert HHMM → HH:MM)
+- Add: `DELAY_CATEGORY`, `DAY_PERIOD`
 
-3. Exploratory Data Analysis (EDA)
-Visualize:
+### 3️⃣ Exploratory Data Analysis (EDA)
+Visualizations:
+- 🧮 Flights per Airline
+- 🏙️ Top 10 Busiest Airports
+- ⏱️ Delay Distributions
+- 🕒 Delay by Time of Day
+- 🏷️ Delay Categories by Airline
 
-Number of flights per airline
+### 4️⃣ Predictive Modeling
+- Binary classification:
+  - `1 = delayed > 15 mins`
+  - `0 = on-time / early`
+- Model: **Random Forest**
+- SMOTE for balancing classes
 
-Delay distributions
+### 5️⃣ Evaluation Metrics
 
-Delay by time of day
+| Metric       | Value      |
+|--------------|------------|
+| Accuracy     | 75.8%      |
+| ROC AUC      | 0.83       |
+| F1-score     | Balanced   |
 
-Delay categories by airline
+Visuals:
+- ROC Curve
+- Precision-Recall Curve
+- Confusion Matrix
 
-4. Predictive Modeling
-Model: Random Forest Classifier
+### 6️⃣ Final Model
+- Saved as: `flight_delay_rf_model.pkl` using `joblib`
 
-Target: Whether a flight is delayed (ARRIVAL_DELAY > 15 mins)
+---
 
-Evaluation: Accuracy, Confusion Matrix, Classification Report
+## 🧰 Tech Stack
 
-5. Model Improvement
-Apply SMOTE to balance the dataset
-
-Evaluate model using ROC AUC, Precision-Recall Curve
-
-6. Model Saving
-Final model is saved using joblib as flight_delay_rf_model.pkl.
-
-📊 Model Performance
-Accuracy: ~75.8%
-
-ROC AUC: 0.83
-
-Balanced F1-scores for both classes using SMOTE.
-
-📦 Libraries Used
-pandas, numpy, matplotlib, seaborn
-
+```bash
+Python, pandas, numpy
 scikit-learn, imbalanced-learn
-
-joblib for model serialization
-
-👩‍💻 Authors
-Ons Tohari
-
-
-📌 Notes
-This project was developed and tested in Google Colab.
-
-Datasets are not included in the repo due to size limitations. Make sure to update the file paths accordingly.
+matplotlib, seaborn
+Google Colab
